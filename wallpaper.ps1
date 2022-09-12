@@ -73,5 +73,7 @@ public class Params
   
     $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
 }
- 
+
 Set-WallPaper -Image "C:\Users\Public\Pictures\Artplus-2022.jpg" -Style Fit
+
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies" -Name NoChangingWallPaper -PropertyType DWORD -Value 0 -Force
